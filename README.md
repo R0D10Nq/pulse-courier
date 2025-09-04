@@ -70,6 +70,14 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/release.ps1 -Remote "https
 - `app/core/` — конфиг, логирование, наблюдаемость, redis, шаблоны
 - `app/db/` — асинхронная сессия SQLAlchemy (Alembic будет добавлен позже)
 
+**Архитектурные решения:**
+- **Multi-provider notification system** (email/SMS/push/Slack/Telegram)
+- **Fallback/retry mechanisms** с экспоненциальным backoff
+- **Template engine** с персонализацией
+- **Queue-based processing** с dead letter queues
+- **Webhook callbacks** для delivery confirmations
+- **Rate limiting** и **idempotency**
+
 ## Дорожная карта
 - Реальные провайдеры: SES, SendGrid, Twilio, FCM, Slack, Telegram
 - Ретраи/бэкофф и DLQ
